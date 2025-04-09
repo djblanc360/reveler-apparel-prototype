@@ -15,5 +15,8 @@ module.exports = {
     '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
     'no-case-declarations': 'off',
     'no-console': ['warn', {allow: ['warn', 'error']}],
+    'no-unused-vars': ['warn', {argsIgnorePattern: '^_'}],
+    'no-undef': 'off',
   },
+  "prettier/prettier": "off"
 };

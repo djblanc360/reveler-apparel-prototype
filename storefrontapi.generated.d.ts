@@ -548,7 +548,7 @@ export type CollectionQuery = {
 
 export type CollectionFragment = Pick<
   StorefrontAPI.Collection,
-  'id' | 'title' | 'handle'
+  'id' | 'title' | 'handle' | 'description'
 > & {
   image?: StorefrontAPI.Maybe<
     Pick<StorefrontAPI.Image, 'id' | 'url' | 'altText' | 'width' | 'height'>
@@ -738,8 +738,17 @@ export type ProductFragment = Pick<
   | 'encodedVariantExistence'
   | 'encodedVariantAvailability'
 > & {
+  images: {
+    nodes: Array<{
+      id: string;
+      url: string;
+      altText: string | null;
+      width: number;
+      height: number;
+    }>;
+  };
   options: Array<
-    Pick<StorefrontAPI.ProductOption, 'name'> & {
+    Pick<StorefrontAPI.ProductOption, 'id' | 'name' | 'values'> & {
       optionValues: Array<
         Pick<StorefrontAPI.ProductOptionValue, 'name'> & {
           firstSelectableVariant?: StorefrontAPI.Maybe<

@@ -123,7 +123,7 @@ export function ProductForm({
   );
 }
 
-function ProductOptionSwatch({
+export function ProductOptionSwatch({
   swatch,
   name,
 }: {

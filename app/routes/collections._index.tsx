@@ -57,6 +57,7 @@ export default function Collections() {
             key={collection.id}
             collection={collection}
             index={index}
+            description={collection.description}
           />
         )}
       </PaginatedResourceSection>
@@ -67,9 +68,11 @@ export default function Collections() {
 function CollectionItem({
   collection,
   index,
+  description,
 }: {
   collection: CollectionFragment;
   index: number;
+  description: string;
 }) {
   return (
     <Link
@@ -87,6 +90,8 @@ function CollectionItem({
         />
       )}
       <h5>{collection.title}</h5>
+      <p>{collection.description}</p>
+      <Link to={`/collections/${collection.handle}`}>View collection</Link>
     </Link>
   );
 }
@@ -103,6 +108,7 @@ const COLLECTIONS_QUERY = `#graphql
       width
       height
     }
+    description
   }
   query StoreCollections(
     $country: CountryCode
